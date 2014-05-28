@@ -6,3 +6,37 @@
         <a class="btn btn-lg btn-primary" href="#products" role="button">View Products</a>
     </p>
 </div>
+
+<!-- add featured here -->
+<div class="featured">
+    <div class="full">
+        <div class="banner">
+            <h1>Featured</h1>
+        </div>
+        <div class="product_desc">
+            <h2 ng-bind="featuredProducts[0].title"></h2>
+            <div class="description">
+                <p ng-bind="featuredProducts[0].description">Um, well it's a delorean, right? Yeah okay. Wow, ah Red, you look great. Everything looks great. 1:24, I still got time. Oh my god. No, no not again...</p>
+            </div>
+            <div class="call_to_action">
+                <a class="button" ui-sref="product({id: featuredProducts[0].guid})">Read More</a>
+            </div>
+        </div>
+    </div>
+    <div class="small">
+        <div class="three" ng-repeat="item in featuredProducts | limitTo:4" ng-if="!$first">
+            <div class="featured_small">
+                <div class="prod_img">
+                    <img ng-src="{{item.thumbnail}}"/>
+                </div>
+                <div class="small_desc">
+                    <h3 ng-bind="item.title"></h3>
+                    <p ng-bind="item.description"></p>
+                </div>
+                <div class="action">
+                    <a class="button" ui-sref="product({id: item.guid})"> Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
