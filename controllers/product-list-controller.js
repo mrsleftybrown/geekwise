@@ -7,26 +7,25 @@
 
 		function errorCallback(reason) {
 			$scope.errorMessage = reason.statusText;
-		};
+		}
 
-			ProductService.getProducts().then(
-				function(response) {
-					$scope.products = response.data;
+		ProductService.getProducts().then(
+			function(response) {
+				$scope.products = response.data;
 
-				}, errorCallback
-			);
+			}, errorCallback
+		);
 
-		
-			ProductService.getProductFilters().then(
-				function(response) {
-					$scope.filters = response.data;
-				},
 
-				errorCallback
+		ProductService.getProductFilters().then(
+			function(response) {
+				$scope.filters = response.data;
+			},
 
-			);
+			errorCallback
 
-			// executed possibly before http completes
+		);
+
 	});
 
 })(window.angular);

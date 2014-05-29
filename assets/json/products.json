@@ -121,7 +121,7 @@
 		"specialPrice": "$855.51",
 		"picture": "http://placehold.it/300x250",
 		"thumbnail": "http://placehold.it/180x180",
-		"inventory": 30,
+		"inventory": 0,
 		"color": "red",
 		"gender": "male",
 		"title": "Product 5",
