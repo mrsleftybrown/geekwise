@@ -20,8 +20,8 @@
 			})
             .state('product', {
                 url: '/product/:id',
-                controller: 'ProductList',
-                templateUrl: 'views/product-list.html'
+                controller: 'ProductDetail',
+                templateUrl: 'views/product-detail.html'
             })
 			.state('about', {
 				url: '/about',
