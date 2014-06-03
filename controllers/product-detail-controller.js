@@ -8,6 +8,8 @@
 		// Set the id from the $stateParams to a local product_guid variable
 		var product_guid = $stateParams.id;
 
+		$scope.featuredProducts = [];
+
 		// Get the products from the product service
 		ProductService.getProducts().then(function(response) {
 
@@ -22,7 +24,13 @@
 
 					// We've found a match, add the matching product to the $scope
 					$scope.product = product;
+
+				}else if(product.isFeatured) {
+
+					// Add the featured product to the featuredProducts array
+					$scope.featuredProducts.push(product);
 				}
+
 			});
 		});
 
