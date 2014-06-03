@@ -1,22 +1,24 @@
 (function(angular) {
-    "use strict";
+	"use strict";
 
-    var app = angular.module('MyStore');
+	var app = angular.module('MyStore');
 
-    app.factory('ProductService', function($http) {
+	app.factory('ProductService', function($http) {
+		// Angular factories return service objects
+		return {
+			// Object literal 
+			getProducts: function() {
+				// Return the promise
+				return $http.get('assets/json/products.json');
+			},
 
-        return {
+			getProductFilters: function() {
+				// Return the promise
+				return $http.get('assets/json/product-filters.json');
+			}
+		}
 
-            get: function() {
-                return $http.get('assets/json/products.json');
-            },
-
-            filters: function() {
-                return $http.get('assets/json/product-filters.json');
-            }
-
-        };
-
-    });
+	});
 
 })(window.angular);
+
