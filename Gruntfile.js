@@ -12,7 +12,7 @@ module.exports = function(grunt) {
                     keepalive: true,
                     open: {
                         target: 'http://localhost:9001',
-                        appName: 'MyStore'
+                        appName: 'mystore'
                     }
                 }
             }

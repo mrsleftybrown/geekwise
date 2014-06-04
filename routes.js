@@ -1,37 +1,43 @@
-(function(angular){
-	"use strict";
+module.exports = function(app) {
 
-	var app = angular.module('MyStore');
+	// Require mongoose dependency
+	var mongoose = require('mongoose');
 
-	app.config(function($stateProvider, $urlRouterProvider) {
+	/* ======================= SERVER ROUTES ====================== */
+	// handle things like api calls
+	// authentication routes
 
-		$urlRouterProvider.otherwise('/');
+	// product:productId API route
+	app.get('/api/product/:productId', function(req, res) {
+		// use mongoose to get a product in the database by guid
+		mongoose.model('Product').findOne({guid: req.params.productId}, function(err, product) {
+			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+			if (err)
+				res.send(err);
 
-		$stateProvider
-			.state('home', {
-				url: '/',
-                controller: 'HomeController',
-				templateUrl: 'views/home.html'
-			})
-			.state('products', {
-				url: '/products',
-				controller: 'ProductList',
-				templateUrl: 'views/product-list.html'
-			})
-            .state('product', {
-                url: '/product/:id',
-                controller: 'ProductDetail',
-                templateUrl: 'views/product-detail.html'
-            })
-			.state('about', {
-				url: '/about',
-				template: '<h1>About</h1>'
-			})
-			.state('contact', {
-				url: '/contact',
-				template: '<h1>Contact</h1>'
-			});
-
+			res.send(product); // return the product JSON format
+		});
 	});
 
-})(window.angular);
+	// products API route
+	app.get('/api/products', function(req, res) {
+		// use mongoose to get all products in the database
+		mongoose.model('Product').find(function(err, products) {
+			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+			if (err)
+				res.send(err);
+
+			res.send(products); // return all products in JSON format
+		});
+	});
+
+	// route to handle creating (app.post)
+	// route to handle delete (app.delete)
+
+	/* ========================= FRONT-END ROUTES ======================= */
+	// route to handle all angular requests
+	app.get('*', function(req, res) {
+		res.sendfile('./public/index.html'); // load our public/index.html file
+	});
+
+};
