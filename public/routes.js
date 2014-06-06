@@ -23,6 +23,11 @@
                 controller: 'ProductDetail',
                 templateUrl: 'views/product-detail.html'
             })
+			.state('cart', {
+				url: '/cart',
+				controller: 'CartController',
+				templateUrl: 'views/cart.html'
+			})
 			.state('about', {
 				url: '/about',
 				template: '<h1>About</h1>'

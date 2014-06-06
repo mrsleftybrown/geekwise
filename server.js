@@ -43,7 +43,7 @@ var options = {
  * Mongoose's format.
  */
 
-var mongodbUri = 'mongodb://<dbuser>:<dbpassword>@<host>:<port>/<dbname>';
+var mongodbUri = 'mongodb://geekwiseuser:geekwise@ds045679.mongolab.com:45679/geekwise';
 var mongooseUri = uriUtil.formatMongoose(mongodbUri);
 var conn = mongoose.connection;
 
@@ -71,5 +71,5 @@ require('./routes.js')(app);                            		        // configure o
 
 /* =============== START APP (THIS GOES LAST) ============== */
 app.listen(port);                                                       // startup our app at http://localhost:9001
-console.log('The MEAN app is served up at http://localhost/:' + port);  // shoutout to the user
+console.log('The MEAN app is served up at http://localhost:' + port);   // shoutout to the user
 exports = module.exports = app;                                         // expose app
