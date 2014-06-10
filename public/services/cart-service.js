@@ -30,13 +30,11 @@
 			},
 
 			removeItem: function(item_id) {
-				// Removes an item from the items array
-				// Can use angular.forEach(array, function(item, index) to splice
                 delete items[item_id];
 			},
 
 			emptyCart: function() {
-				// Sets items array to empty array
+				// Sets items object to an empty object
                 items = {};
 			},
 
@@ -50,21 +48,20 @@
 			},
 
 			getCartSubtotal: function() {
-				// Return the item quantity times item price for each item in the array
+				// Return the item quantity times item price for each item in the items object
                 var total = 0;
                 angular.forEach(items, function(item) {
-                   total += parseInt(item.quantity) * parseInt(item.isSpecial ? item.specialPrice : item.price);
+                   total += parseInt(item.quantity) * parseFloat(item.isSpecial ? item.specialPrice : item.price);
                 });
                 return total;
 			},
 
 			getCartTotal: function() {
 				// Return the cartSubtotal plus shipping and handling
-                // Return the item quantity times item price for each item in the array
                 var total = 0;
                 angular.forEach(items, function(item) {
                     // TODO add shipping
-                    total += parseInt(item.quantity) * parseInt(item.isSpecial ? item.specialPrice : item.price);
+                    total += parseInt(item.quantity) * parseFloat(item.isSpecial ? item.specialPrice : item.price);
                 });
                 return total;
 			}
