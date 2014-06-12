@@ -3,7 +3,7 @@
 
 	var app = angular.module('MyStore');
 
-	app.controller('ProductDetail', function($scope, $stateParams, ProductService) {
+	app.controller('ProductDetailController', function($scope, $stateParams, ProductService) {
 
 		// Set the id from the $stateParams to a local product_guid variable
 		var product_guid = $stateParams.id;

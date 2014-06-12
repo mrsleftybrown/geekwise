@@ -3,7 +3,7 @@
 
 	var app = angular.module('MyStore');
 
-	app.controller('ProductList', function($scope, ProductService) {
+	app.controller('ProductListController', function($scope, ProductService) {
 
 		function errorCallback(reason) {
 			$scope.errorMessage = reason.statusText;
