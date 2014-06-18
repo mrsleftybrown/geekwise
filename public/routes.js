@@ -35,6 +35,16 @@
 			.state('contact', {
 				url: '/contact',
 				template: '<h1>Contact</h1>'
+			})
+			.state('login', {
+				url: '/login',
+				controller: 'LoginController',
+				templateUrl: 'views/login.html'
+			})
+			.state('signup', {
+				url: '/signup',
+				controller: 'SignupController',
+				templateUrl: 'views/signup.html'
 			});
 
 	});
